@@ -1,0 +1,156 @@
+.chat {
+  max-width: 37rem;
+  margin: 10rem auto 0rem auto;
+  border-radius: 4px;
+  height: 340px;
+  animation: fadeUp 2s;
+  box-shadow: 0px 12px 36.8px 9.2px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: #f8f8fa;
+
+  position: absolute;
+  z-index: 1;
+  left: 0;
+  right: 0;
+
+  &__log {
+    text-align: left;
+    color: white;
+    padding: 0 1rem;
+
+    overflow: auto;
+
+    &::-webkit-scrollbar-thumb {
+      background: #666;
+    }
+
+    &::-webkit-scrollbar-track {
+      background: #ddd;
+    }
+
+    &::-webkit-scrollbar {
+      width: 7px;
+    }
+  }
+
+  &__message {
+    display: flex;
+    flex-direction: column;
+
+    p {
+      background: white;
+      color: #666;
+      font-size: 18px;
+      margin: 5px 0;
+      /*border: 1px solid #888;*/
+      padding: 12px 0 10px 0;
+      padding-left: 15px;
+      padding-right: 25px;
+      border-radius: 20px;
+      display: inline-block;
+      box-shadow: 0 1px 1px #ddd;
+      animation: slideUp 1s ease;
+
+      font-family: $font-text;
+    }
+
+    &--bot {
+      p {
+        align-self: flex-start;
+        background: #ec6ead;
+        color: white;
+      }
+    }
+
+    &--user {
+      p {
+        align-self: flex-end;
+        color: #666;
+      }
+    }
+
+    &:first-child {
+      margin-top: 1rem;
+    }
+
+    &:last-child {
+      margin-bottom: 1rem;
+    }
+  }
+
+  &__input-wrapper {
+    width: 100%;
+    height: 45px;
+    background: #ffffff;
+    margin: auto;
+    box-shadow: 0px 0px 1px #eeeeee;
+    border-radius: 5px;
+    display: flex;
+  }
+
+  &__input-container {
+    padding: 15px;
+    background-color: #f8f8fa;
+    border-top: 1px solid #dddddd;
+  }
+
+  &__microphone {
+    border: 0;
+    padding: 0 10px;
+    margin: 0;
+    outline: 0;
+
+    img {
+      user-select: none;
+    }
+
+    &:hover {
+      cursor: pointer;
+    }
+
+    &--recording {
+      animation: pulse 1s infinite alternate;
+    }
+  }
+
+  &__input {
+    width: 100%;
+    margin: 0px 15px;
+    border: none;
+    outline: 0;
+    font-family: $font-text;
+    font-size: 14px;
+    font-weight: 300;
+  }
+}
+
+@keyframes slideUp {
+  0% {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+}
+
+@keyframes pulse {
+  0% {
+    background-color: #4ca0e0;
+  }
+  25% {
+    background-color: #ffb802;
+  }
+  50% {
+    background-color: #d9442f;
+  }
+  75% {
+    background-color: #3bc492;
+  }
+  100% {
+    background-color: #e5e5e5;
+  }
+}

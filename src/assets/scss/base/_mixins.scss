@@ -1,0 +1,20 @@
+$breakpoints: (
+  'sm': 336px,
+  'md': 768px,
+  'lg': 1024px,
+  'xl': 1440px,
+);
+
+
+@mixin media($media){
+  @media all and (max-width: #{map-get($breakpoints,#{$media})}){
+    @content
+  }
+}
+
+@mixin media-width($media-width){
+  @media all and (max-width: #{$media-width}px){
+    transition: .5s; // animate when window resizing
+    @content
+  }
+}

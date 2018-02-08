@@ -1,0 +1,24 @@
+# Dependency directories
+node_modules
+
+# Build directories
+dist
+
+# Parcel cache
+.cache
+
+### macOS ###
+*.DS_Store
+.AppleDouble
+.LSOverride
+
+### Windows ###
+# Windows image file caches
+Thumbs.db
+ehthumbs.db
+
+# Folder config file
+Desktop.ini
+
+# Windows shortcuts
+*.lnk

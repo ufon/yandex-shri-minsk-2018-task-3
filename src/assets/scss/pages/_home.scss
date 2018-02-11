@@ -1,5 +1,8 @@
 /* hero section */
 .hero {
+
+    
+
     text-align: center;
     
     background: #C9D6FF;  /* fallback for old browsers */
@@ -8,6 +11,10 @@
     
     
     padding: 1rem 0 17rem 0;
+
+    @include media(md){ 
+        display: none;
+    }
 }
 
 .hero__title {

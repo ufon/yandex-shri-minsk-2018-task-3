@@ -15,7 +15,7 @@ export default class YandexMap extends Component {
   
   handleApiAvaliable = ymaps => {
     this.setState({ ymaps: ymaps });
-    console.log(ymaps);
+    //console.log(ymaps);
   };
 
   componentWillReceiveProps(props) {
@@ -44,7 +44,7 @@ export default class YandexMap extends Component {
         <Map
           state={{ center: this.state.center, zoom: 2 }}
           width={"100%"}
-          height={"100%"}
+          height={"50%"}
         >
           {this.state.cities.map((item, index) => {
             return (

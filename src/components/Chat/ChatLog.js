@@ -18,7 +18,7 @@ class ChatLog extends Component {
   }
 
   render() {
-    console.log(this.props.log);
+    //console.log(this.props.log);
     return (
       <div
         className="chat__log"

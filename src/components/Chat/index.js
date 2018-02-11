@@ -152,7 +152,7 @@ class Chat extends Component {
   };
 
   render() {
-    console.log(this.state.currentLetter, this.state.usedCities);
+    //console.log(this.state.currentLetter, this.state.usedCities);
     return (
       <div className="chat">
         <ChatLog log={this.state.chatLog} />

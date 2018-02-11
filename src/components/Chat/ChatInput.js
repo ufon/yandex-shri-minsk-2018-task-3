@@ -51,8 +51,8 @@ class ChatInput extends Component {
         </div>
         {this.state.recording && (
           <Speech
-            onStart={() => console.log("start")}
-            onEnd={() => console.log("end")}
+            // onStart={() => console.log("start")}
+            // onEnd={() => console.log("end")}
             onResult={this.onResult}
             continuous={true}
             lang="ru-RU"

@@ -16,32 +16,7 @@ class Chat extends Component {
     this.state = {
       usedCities: [],
       chatLog: [
-        {
-          type: "bot",
-          text: "Привет человек!"
-        },
-        {
-          type: "bot",
-          text: 'Я бот который играет в довольно популярную игру "Города"'
-        },
-        {
-          type: "bot",
-          text:
-            "Вкратце мы называем города и название следующего города должно начинаться на последнюю букву предыдущего."
-        },
-        {
-          type: "bot",
-          text: 'Ну конечно есть исключения, это буквы "ь", "ъ", "й", "ы", "ё"'
-        },
-        {
-          type: "bot",
-          text:
-            "Если мы их встречаем то название следующего города должно начинаться не на последнюю, а на предпоследнюю"
-        },
-        {
-          type: "bot",
-          text: "Давай начнём! Я первый :)"
-        }
+
       ],
       currentLetter: null
     };
@@ -120,32 +95,34 @@ class Chat extends Component {
 
   validateCity = name => {
     if (name !== "") {
-      this.addUserMessage(name);
-      checkCity(name).then(result => {
-        if (result.status == 200) {
-          if (result.data.check) {
-            if (this.state.usedCities.indexOf(result.data.city_id) > -1) {
-              this.addBotMessage("Этот город уже был!");
-            } else {
-              if (
-                result.data.name[0].toLowerCase() == this.state.currentLetter
-              ) {
-                this.addCity(result.data);
-                this.addBotCityByLetter();
+      if (name.toLowerCase() == "сдаюсь") {
+        this.addUserMessage(name);
+        this.addBotMessage("лол");
+      } else {
+        this.addUserMessage(name);
+        checkCity(name).then(result => {
+          if (result.status == 200) {
+            if (result.data.check) {
+              if (this.state.usedCities.indexOf(result.data.city_id) > -1) {
+                this.addBotMessage("Этот город уже был!");
               } else {
-                this.addBotMessage(
-                  "Город не начинается на " + this.state.currentLetter
-                );
+                if (
+                  result.data.name[0].toLowerCase() == this.state.currentLetter
+                ) {
+                  this.addCity(result.data);
+                  this.addBotCityByLetter();
+                } else {
+                  this.addBotMessage(
+                    "Город не начинается на " + this.state.currentLetter
+                  );
+                }
               }
+            } else {
+              this.addBotMessage("Такого города к сожалению я не знаю :(");
             }
-          } else {
-            this.addBotMessage("Такого города к сожалению я не знаю :(");
           }
-        }
-      });
-    } else if (name.toLowerCase() == "сдаюсь") {
-      this.addUserMessage(name);
-      this.addBotMessage("лол");
+        });
+      }
     } else {
       return null;
     }
